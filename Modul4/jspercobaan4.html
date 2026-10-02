@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Praktikum Pemrograman Web</title>
+</head>
+<body>
+    <img name="img1" src="bmw1.png" style="width: 100px; height: 100px;" onMouseOver="ganti_gambar2()" onMouseOut="ganti_gambar1()">
+    
+    <script>
+        function ganti_gambar1() {
+            document.img1.src = "bmw1.png";
+        }
+        function ganti_gambar2() {
+            document.img1.src = "bmw2.png";
+        }
+    </script>
+</body>
+</html>

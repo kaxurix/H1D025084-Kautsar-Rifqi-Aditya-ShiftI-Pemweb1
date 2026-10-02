@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Latihan - Validasi Form</title>
+</head>
+<body>
+    <form name="formLatihan" onsubmit="return validasiForm()">
+        <table>
+            <tr>
+                <td>Nama</td>
+                <td>: <input type="text" id="nama" name="nama"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>: <input type="email" id="email" name="email"></td>
+            </tr>
+            <tr>
+                <td>Komentar</td>
+                <td>: <textarea id="komentar" name="komentar" rows="4" cols="30"></textarea></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Simpan"></td>
+                <td></td>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        function validasiForm() {
+            const nama = document.getElementById("nama").value;
+            const email = document.getElementById("email").value;
+            const komentar = document.getElementById("komentar").value;
+
+            if (nama === "" || email === "" || komentar === "") {
+                alert("Semua field (Nama, Email, Komentar) harus diisi!");
+                return false;
+            }
+
+            const regexNama = /^[a-zA-Z\s]+$/;
+            if (!regexNama.test(nama)) {
+                alert("Field Nama tidak diperbolehkan mengandung angka atau simbol!");
+                return false;
+            }
+
+            alert("Form berhasil disimpan!");
+            return true;
+        }
+    </script>
+</body>
+</html>

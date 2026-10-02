@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Tugas 2 - Kalkulator Sederhana</title>
+</head>
+<body>
+    <h2>Kalkulator Javascript</h2>
+    Angka 1: <input type="number" id="angka1"><br><br>
+    Angka 2: <input type="number" id="angka2"><br><br>
+    
+    <button onclick="hitung('+')">Tambah (+)</button>
+    <button onclick="hitung('-')">Kurang (-)</button>
+    <button onclick="hitung('*')">Kali (x)</button>
+    <button onclick="hitung('/')">Bagi (/)</button>
+    
+    <br><br>
+    <div id="hasilKalkulator" style="font-size: 20px; font-weight: bold;"></div>
+
+    <script>
+        function hitung(operator) {
+            const num1 = parseFloat(document.getElementById("angka1").value);
+            const num2 = parseFloat(document.getElementById("angka2").value);
+            let hasil = 0;
+
+            if (isNaN(num1) || isNaN(num2)) {
+                document.getElementById("hasilKalkulator").innerHTML = "Harap masukkan kedua angka!";
+                return;
+            }
+
+            switch(operator) {
+                case '+':
+                    hasil = num1 + num2;
+                    break;
+                case '-':
+                    hasil = num1 - num2;
+                    break;
+                case '*':
+                    hasil = num1 * num2;
+                    break;
+                case '/':
+                    if (num2 === 0) {
+                        document.getElementById("hasilKalkulator").innerHTML = "Error: Pembagian dengan nol!";
+                        return;
+                    }
+                    hasil = num1 / num2;
+                    break;
+            }
+
+            document.getElementById("hasilKalkulator").innerHTML = "Hasil: " + hasil;
+        }
+    </script>
+</body>
+</html>
